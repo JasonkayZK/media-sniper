@@ -4,6 +4,7 @@ from click import Context
 
 from media_sniper import __version__
 from media_sniper.config import settings
+from media_sniper.gui.gui import MainWindow
 from media_sniper.log import init_log
 
 
@@ -39,3 +40,4 @@ def run():
     """Run command"""
     init_log()
     click.echo('run......')
+    MainWindow().mainloop()

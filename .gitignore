@@ -179,3 +179,8 @@ venv.bak/
 ### Dynaconf config
 **/*.local.yml
 **/.secrets.yml
+
+**/test_output
+
+# Binary executor
+src/media_sniper/bin

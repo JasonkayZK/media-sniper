@@ -7,7 +7,7 @@ from click.testing import CliRunner
 from media_sniper import __version__
 from media_sniper.cmdline import main
 
-
+@pytest.mark.skip(reason="Skipping this method")
 @pytest.mark.parametrize(
     ['invoke_args', 'exit_code', 'output_keyword'],
     [

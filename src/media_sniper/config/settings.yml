@@ -1,3 +1,4 @@
+app_name: MediaSniper
 verbose: false
 debug: false
 loglevel: warning
