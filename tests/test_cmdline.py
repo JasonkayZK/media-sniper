@@ -1,4 +1,5 @@
 """Test cmdline"""
+
 from __future__ import annotations  # PEP 585
 
 import pytest
@@ -7,22 +8,23 @@ from click.testing import CliRunner
 from media_sniper import __version__
 from media_sniper.cmdline import main
 
+
 @pytest.mark.skip(reason="Skipping this method")
 @pytest.mark.parametrize(
-    ['invoke_args', 'exit_code', 'output_keyword'],
+    ["invoke_args", "exit_code", "output_keyword"],
     [
-        ([], 0, 'help'),
-        (['--help'], 0, 'help'),
-        (['--version'], 0, __version__),
-        (['-V'], 0, __version__),
-        (['--debug', '--verbose', 'run'], 0, 'run'),
-    ]
+        ([], 0, "help"),
+        (["--help"], 0, "help"),
+        (["--version"], 0, __version__),
+        (["-V"], 0, __version__),
+        (["--debug", "--verbose", "run"], 0, "run"),
+    ],
 )
 def test_main(
-        clicker: CliRunner,
-        invoke_args: list[str],
-        exit_code: int,
-        output_keyword: str,
+    clicker: CliRunner,
+    invoke_args: list[str],
+    exit_code: int,
+    output_keyword: str,
 ):
     """Test main cmdline"""
     result = clicker.invoke(main, invoke_args)

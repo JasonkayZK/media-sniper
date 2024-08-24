@@ -1,4 +1,5 @@
 """Test config"""
+
 import pytest
 from click.testing import CliRunner
 

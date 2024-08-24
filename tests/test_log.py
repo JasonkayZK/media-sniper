@@ -1,17 +1,18 @@
 """Test log"""
+
 import pytest
 
 from media_sniper.log import update_log_level, verbose_formatter
 
 
 @pytest.mark.parametrize(
-    ['debug', 'level', 'expect_value'],
+    ["debug", "level", "expect_value"],
     [
-        (True, '', 'DEBUG'),
-        (True, 'INFO', 'DEBUG'),
-        (False, 'DEBUG', 'DEBUG'),
-        (False, 'INFO', 'INFO'),
-    ]
+        (True, "", "DEBUG"),
+        (True, "INFO", "DEBUG"),
+        (False, "DEBUG", "DEBUG"),
+        (False, "INFO", "INFO"),
+    ],
 )
 def test_log_level(debug: bool, level: str, expect_value):
     """Test log level"""
@@ -21,5 +22,5 @@ def test_log_level(debug: bool, level: str, expect_value):
 
 def test_verbose_formatter():
     """Test verbose formatter"""
-    assert verbose_formatter(True) == 'verbose'
-    assert verbose_formatter(False) == 'simple'
+    assert verbose_formatter(True) == "verbose"
+    assert verbose_formatter(False) == "simple"

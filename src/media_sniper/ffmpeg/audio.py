@@ -1,4 +1,3 @@
-import logging
 import os
 import subprocess
 
@@ -6,7 +5,7 @@ _output_filename_prefix = "merged"
 _audio_merge_list_filename = "audio_merge_list.txt"
 
 
-def merge(clips: [], output_folder: str, file_type='.mp3'):
+def merge(clips: [], output_folder: str, file_type=".mp3"):
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
 
@@ -19,9 +18,9 @@ def merge(clips: [], output_folder: str, file_type='.mp3'):
         os.remove(output_filepath)
 
     # Step 2: Write media list to a TXT file.
-    with open(output_merge_list_filepath, 'w') as ff:
+    with open(output_merge_list_filepath, "w") as ff:
         for clip in clips:
-            content = 'file {}\n'.format(clip)
+            content = "file {}\n".format(clip)
             ff.write(content)
 
     # Step 3: Merge media clips with FFMpeg command.
@@ -35,7 +34,9 @@ def merge(clips: [], output_folder: str, file_type='.mp3'):
     #     Removing 'copy' re-encodes clips and avoids black screen/frames.
     #     Removing 'copy' leads to high CPU load and long operating time.
     # Generate the command for processing input media.
-    cmd = 'ffmpeg -f concat -safe 0 -i {}  {}'.format(output_merge_list_filepath, output_filepath)
+    cmd = "ffmpeg -f concat -safe 0 -i {}  {}".format(
+        output_merge_list_filepath, output_filepath
+    )
 
     print("cmd content: ", cmd)
 

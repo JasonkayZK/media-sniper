@@ -53,7 +53,7 @@ jobs:
       - run: pip install tox
       - run: |
           tox -e isort
-          tox -e pylint
+          tox -e black
 
   deploy:
     if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags') && github.repository == 'media-sniper'
